@@ -1,0 +1,199 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Saturday Jogging Invite 🏃</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 420px;
+      background: white;
+      padding: 30px 20px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    .emoji {
+      font-size: 65px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    h1 {
+      margin: 10px 0;
+      font-size: 30px;
+    }
+
+    p {
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .details {
+      background: #f2f9ff;
+      border-radius: 18px;
+      padding: 18px;
+      margin: 20px 0;
+      line-height: 1.8;
+    }
+
+    .buttons {
+      position: relative;
+      height: 80px;
+      margin-top: 15px;
+    }
+
+    button {
+      border: none;
+      border-radius: 30px;
+      padding: 14px 22px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: #22c55e;
+      color: white;
+    }
+
+    #no {
+      background: #ef4444;
+      color: white;
+      position: absolute;
+      margin-left: 10px;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .success {
+      font-size: 60px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card" id="card">
+
+    <div class="emoji">🏃‍♂️💨</div>
+
+    <h1>Jogging sa MoA</h1>
+
+    <p>
+      Tara na let's gooo!
+      <br>
+      Takbo, lakad, pahabol sa aso, sabit sa jeep pwede na yon HAHAHA
+    </p>
+
+    <div class="details">
+      📅 <b>Saturday</b><br>
+      ⏰ <b>6:00 AM</b><br>
+      📍 <b>Rural Bank</b><br>
+      🏃 <b>3–5 KM</b>
+    </div>
+
+    <h3>Ano G? 👀</h3>
+
+    <div class="buttons">
+
+      <button id="yes" onclick="yesClicked()">
+        YES 🏃
+      </button>
+
+      <button id="no">
+        NO 😭
+      </button>
+
+    </div>
+
+    <div id="message"></div>
+
+  </div>
+
+
+  <script>
+
+    const noButton = document.getElementById("no");
+
+    function moveButton() {
+
+      const maxX = window.innerWidth - noButton.offsetWidth - 20;
+      const maxY = window.innerHeight - noButton.offsetHeight - 20;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noButton.style.position = "fixed";
+      noButton.style.left = x + "px";
+      noButton.style.top = y + "px";
+    }
+
+    // Desktop
+    noButton.addEventListener("mouseover", moveButton);
+
+    // Mobile
+    noButton.addEventListener("touchstart", function(event) {
+      event.preventDefault();
+      moveButton();
+    });
+
+
+    function yesClicked() {
+
+      document.getElementById("card").innerHTML = `
+
+        <div class="success">🏃‍♂️🔥</div>
+
+        <h1>HAHAHA! Sapatos kana! 😂</h1>
+
+        <p style="font-size:20px;">
+          LET'S GO MOA HAHAHA
+        </p>
+
+        <div class="details">
+          📅 Saturday<br>
+          ⏰ 6:00 AM<br>
+          📍 Rural Bank<br>
+          🏃 3–5 KM
+        </div>
+
+        <p>
+          <b>DALA KA PARACHUTE</b>
+        </p>
+
+      `;
+    }
+
+  </script>
+
+</body>
+</html>  
